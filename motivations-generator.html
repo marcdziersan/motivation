@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivations-Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        #quote-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 400px;
+            width: 90%;
+        }
+        #quote-box p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        #fun-mode {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ff6f61;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e55b50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Motivations-Generator</h1>
+        <p>Hol dir deine tägliche Motivation – oder ein bisschen Spaß!</p>
+    </header>
+    <div id="quote-box">
+        <p id="quote">Klicke unten, um motiviert zu werden!</p>
+    </div>
+    <button id="generate-quote">Neue Motivation</button>
+    <div id="fun-mode">
+        <h2>Spaßmodus</h2>
+        <button id="start-fun-mode">Ich brauche Aufmunterung</button>
+    </div>
+    <script>
+        const quotes = [
+            "Der Weg ist das Ziel. – Konfuzius",
+            "Tu heute etwas, worauf du morgen stolz sein kannst.",
+            "Der einzige Weg, großartige Arbeit zu leisten, ist, zu lieben, was du tust. – Steve Jobs",
+            "Man muss nicht der Beste sein, um zu beginnen, aber man muss beginnen, um der Beste zu werden.",
+            "Auch aus Steinen, die dir in den Weg gelegt werden, kannst du etwas Schönes bauen. – Goethe",
+        ];
+
+        const funReplies = [
+            "Oh, das klingt nach einem schlechten Tag! Hier ist ein virtueller Keks 🍪",
+            "Kopf hoch! Selbst die Sonne braucht manchmal eine Pause.",
+            "Du bist großartig, auch wenn dein Spiegel dir heute vielleicht etwas anderes sagt!",
+            "Hier ist dein Aufmunterungs-Booster: DU ROCKST! 💪",
+            "Hey, ich bin nur ein kleiner Code, aber ich glaube an dich!"
+        ];
+
+        const quoteElement = document.getElementById("quote");
+        const generateQuoteButton = document.getElementById("generate-quote");
+        const startFunModeButton = document.getElementById("start-fun-mode");
+
+        // Generiere ein zufälliges Motivationszitat
+        generateQuoteButton.addEventListener("click", () => {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteElement.textContent = randomQuote;
+        });
+
+        // Spaßmodus
+        startFunModeButton.addEventListener("click", () => {
+            const randomReply = funReplies[Math.floor(Math.random() * funReplies.length)];
+            alert(randomReply);
+        });
+    </script>
+</body>
+</html>
